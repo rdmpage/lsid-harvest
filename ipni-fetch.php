@@ -23,7 +23,7 @@ foreach ($lsids as $lsid)
 	{
 		// URL
 		$url = 'http://ipni.org/' . $lsid;
-		$xml = get($url);
+		$xml = get($url, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/600.5.17 (KHTML, like Gecko) Version/8.0.5 Safari/600.5.17');
 	}
 
 	if ($xml != '')
@@ -34,6 +34,7 @@ foreach ($lsids as $lsid)
 		$jsonld = rdftojsonld($xml);
 
 		echo json_format(json_encode($jsonld));
+		echo "\n";
 		
 	}
 }
